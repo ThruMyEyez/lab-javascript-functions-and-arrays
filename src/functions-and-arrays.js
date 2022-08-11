@@ -35,7 +35,6 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(arr) {
   let sum = 0;
-
   if (!arr.length) {
     return 0;
   } else {
@@ -46,8 +45,7 @@ function sumNumbers(arr) {
     return sum;
   }
 }
-console.log(Error("woops"));
-
+console.log(sumNumbers([1, 2, 3, 4]));
 // Iteration #3.1 Bonus:
 const mixedArr = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
 function sum(arr) {
@@ -229,11 +227,9 @@ const wordsCount = [
 console.time("Timer Iteration7:");
 function howManyTimes(arr, word) {
   let counter = 0;
-  if (!arr.length) {
-    return 0;
-  }
-  for (const i in arr) {
-    if (arr[i] === word) counter++;
+
+  for (const cword of arr) {
+    if (cword === word) counter++;
   }
   return counter;
 }
@@ -311,33 +307,46 @@ const matrix2 = [
   [1, 20, 3, 4, 5],
   [1, 4, 3, 4, 5],
 ];
-// TODO
+// TODO MAKE ROW AND COLUMN iterator with DEPTH VALUE
 function greatestProduct(mtxArr) {
-  //? multiply vertical Or horizontal???
-  let product = 1;
-  /*for (let i = 0; i < 4; i++) {
+  // multiply vertical Or horizontal???
+  let productHor = 1,
+    productVer = 1;
+
+  for (let i = 0; i < 4; i++) {
     console.log(mtxArr[i][i]);
     for (let j = 0; j < 4; j++) {
       console.log(mtxArr[i][j]);
     }
-  }*/
+  }
   mtxArr.forEach((elem, idx) => {
     console.log(elem);
-    console.log(elem[1]);
-    product *= elem[1];
+    console.log(elem[[1]]);
+
+    console.log([elem[idx]]);
+    productVer *= elem[1];
     console.log(mtxArr.length);
 
     /* for (let j=0; j <elem.length; j++) {
       console.log(elem[i])
     } */
   });
-  console.log(product);
-  return product;
+
+  return productVer;
 }
 console.log(greatestProduct(matrix2));
 
 // Iteration #8.2: Bonus
+// -
+const curiousFunc = (input) => {
+  const sum = input + input;
 
+  return;
+  console.log(input);
+  return input + input;
+};
+console.log(curiousFunc(7)(3));
+// -
 function greatestProductOfDiagonals(matrix) {
   if (!matrix.length) {
     return 0;
